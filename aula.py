@@ -2,7 +2,7 @@ import json
 import os
 from typing import Tuple, List
 
-__all__ = ["add_turma", "exclui_turma", "get_turmas_por_filial","get_filial_por_turma"]
+__all__ = ["add_aula", "del_aula", "get_turmas_por_filial","get_filial_por_turma"]
 
 # Variáveis Globais
 _SCRIPT_DIR_PATH: str = os.path.dirname(os.path.realpath(__file__))  # Caminho do diretório do script atual
