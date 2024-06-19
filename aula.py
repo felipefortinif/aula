@@ -52,7 +52,7 @@ def add_turma(id_turma: int, filial_id: int) -> int:
     except Exception as e:
         return ERRO_DESCONHECIDO
 
-def exclui_turma(id_turma: int) -> int:
+def del_turma(id_turma: int) -> int:
     """
     Exclui uma turma do arquivo JSON de turmas.
 
