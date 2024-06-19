@@ -111,3 +111,34 @@ def get_turmas_por_filial(filial_id: int) -> Tuple[int, List[int]]:
         return ARQUIVO_EM_FORMATO_INVALIDO, []
     except Exception as e:
         return ERRO_DESCONHECIDO, []
+
+def get_filial_por_turma(turma_id: int) -> tuple:
+    """
+    Retorna todas as filiais que possuem uma determinada turma do arquivo JSON de turmas.
+
+    Args:
+        turma_id (int): ID da turma para buscar as filiais.
+
+    Returns:
+        Tuple[int, List[int]]: Tupla contendo um código de erro ou sucesso e uma lista de IDs das filiais encontradas.
+    """
+    try:
+        with open(_TURMAS_JSON_FILE_PATH, 'r') as file:
+            turmas = json.load(file)
+
+        filiais_com_turma = []
+        for filial_id, turmas_da_filial in turmas.items():
+            if turma_id in turmas_da_filial:
+                filiais_com_turma.append(int(filial_id))
+
+        if filiais_com_turma:
+            return OPERACAO_REALIZADA_COM_SUCESSO, filiais_com_turma
+        else:
+            return TURMA_NAO_ENCONTRADA, []
+
+    except FileNotFoundError:
+        return ARQUIVO_NAO_ENCONTRADO, []
+    except json.JSONDecodeError:
+        return ARQUIVO_EM_FORMATO_INVALIDO, []
+    except Exception as e:
+        return ERRO_DESCONHECIDO, []
