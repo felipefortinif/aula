@@ -18,7 +18,7 @@ TURMA_JA_EXISTE = 36  # Código de retorno para tentativa de adicionar uma turma
 TURMA_NAO_ENCONTRADA = 1  # Código de retorno para tentativa de excluir uma turma que não existe
 ERRO_DESCONHECIDO = 34  # Código de retorno para erro desconhecido
 
-def add_turma(id_turma: int, filial_id: int) -> int:
+def add_aula(id_turma: int, filial_id: int) -> int:
     """
     Adiciona uma turma ao arquivo JSON de turmas.
 
@@ -52,7 +52,7 @@ def add_turma(id_turma: int, filial_id: int) -> int:
     except Exception as e:
         return ERRO_DESCONHECIDO
 
-def del_turma(id_turma: int) -> int:
+def del_aula(id_turma: int) -> int:
     """
     Exclui uma turma do arquivo JSON de turmas.
 
