@@ -7,7 +7,7 @@ __all__ = ["add_aula", "del_aula", "get_turmas_por_filial","get_filial_por_turma
 # Variáveis Globais
 _SCRIPT_DIR_PATH: str = os.path.dirname(os.path.realpath(__file__))  # Caminho do diretório do script atual
 _DATA_DIR_PATH: str = os.path.join(_SCRIPT_DIR_PATH, "data")  # Caminho do diretório 'data' dentro do diretório do script
-_TURMAS_JSON_FILE_PATH: str = os.path.join(_DATA_DIR_PATH, "turmas.json")  # Caminho completo para o arquivo 'turmas.json'
+_TURMAS_JSON_FILE_PATH: str = os.path.join(_DATA_DIR_PATH, "aula.json")  # Caminho completo para o arquivo 'turmas.json'
 
 # Códigos de Erro
 OPERACAO_REALIZADA_COM_SUCESSO = 0  # Código de retorno para operação bem-sucedida
@@ -141,4 +141,6 @@ def get_filial_por_turma(turma_id: int) -> tuple:
     except json.JSONDecodeError:
         return ARQUIVO_EM_FORMATO_INVALIDO, []
     except Exception as e:
-        return ERRO_DESCONHECIDO, []
+        return ERRO_DESCONHECIDO,[]
+
+print(get_turmas_por_filial(1))
