@@ -2,6 +2,8 @@ import json
 import os
 from typing import Tuple, List
 
+__all__ = ["add_turma", "exclui_turma", "get_turmas_por_filial"]
+
 # Variáveis Globais
 _SCRIPT_DIR_PATH: str = os.path.dirname(os.path.realpath(__file__))  # Caminho do diretório do script atual
 _DATA_DIR_PATH: str = os.path.join(_SCRIPT_DIR_PATH, "data")  # Caminho do diretório 'data' dentro do diretório do script
